@@ -49,12 +49,21 @@ body{
     color: #0F0F2D;
 }
 
+.userList{
+    width: auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
 .userList>ul{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     width: auto;
     gap: 1rem;
+    margin: 0;
+    padding: 0;
 }
 
 .userList>ul>li{
