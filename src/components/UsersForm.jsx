@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const UsersForm = ({ userSelect, update, addUser, modal, modalClose }) => {
+const UsersForm = ({ userSelect, update, addUser, modal, modalClose}) => {
 
     //Form Variables
 
@@ -33,13 +33,11 @@ const UsersForm = ({ userSelect, update, addUser, modal, modalClose }) => {
             birthday
         }
 
-        if (userSelect) {
+        if (userSelect !== null) {
             update(newUser)
         } else {
             addUser(newUser)
         }
-
-        modalClose()
     }
 
 

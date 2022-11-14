@@ -20,6 +20,7 @@ function App() {
 
   const modalClose = () => {
     setModal("modal")
+    setUserSelect(null)
   }
   
   useEffect(() => {
@@ -40,12 +41,17 @@ function App() {
 
   const addUser = (newUser) => {
     axios.post('https://users-crud1.herokuapp.com/users/', newUser)
-      .then(() => getUsers())
+      .then(() => getUsers()) 
+      .catch(error=>alert(error.response?.data?.email[0]))
+      setUserSelect(null)
+      modalClose()
   }
 
   const update = (editUser) => {
     axios.put(`https://users-crud1.herokuapp.com/users/${userSelect.id}/`, editUser)
       .then(() => getUsers())
+      setUserSelect(null)
+      modalClose()
   }
 
   const deleteUser = (id) => {
