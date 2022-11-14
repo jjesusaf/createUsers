@@ -73,6 +73,7 @@ body{
     background: #FFFFFF;
     border: 1px solid #E5E5E5;
     border-radius: 4px;
+    background-image: linear-gradient(to right top, #f1f6f8, #e5eaed, #dadfe2, #cfd3d7, #c4c8cc);
 }
 .userList>ul>li>h1{
     font-family: 'Helvetica Neue';
