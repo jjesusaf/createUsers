@@ -5,24 +5,37 @@ import UsersForm from './components/UsersForm'
 import UsersList from './components/UsersList'
 import axios from 'axios'
 
+
 function App() {
 
   //Data extraction 
 
   const [dataUsers, setDataUsers] = useState([])
   const [userSelect, setUserSelect] = useState(null)
+  const [modal, setModal] = useState("modal")
 
-  useEffect(() =>{
+  const modalOpen = () => {
+    setModal("modal is-open")
+  }
+
+  const modalClose = () => {
+    setModal("modal")
+  }
+  
+  useEffect(() => {
     axios.get('https://users-crud1.herokuapp.com/users/')
       .then(res => setDataUsers(res.data))
-  },[])
-  
+  }, [])
+
+  console.log(dataUsers)
+
   const selectUser = (user) => {
     setUserSelect(user)
+    modalOpen()
   }
   const getUsers = () => {
     axios.get('https://users-crud1.herokuapp.com/users/')
-      .then(res => setDataUsers(res.data) )
+      .then(res => setDataUsers(res.data))
   }
 
   const addUser = (newUser) => {
@@ -30,20 +43,28 @@ function App() {
       .then(() => getUsers())
   }
 
-  const update = (editUser) =>{ 
+  const update = (editUser) => {
     axios.put(`https://users-crud1.herokuapp.com/users/${userSelect.id}/`, editUser)
       .then(() => getUsers())
   }
 
-  const deleteUser = (id) =>{
+  const deleteUser = (id) => {
     axios.delete(`https://users-crud1.herokuapp.com/users/${id}/`)
       .then(() => getUsers())
   }
 
+  
+
+ 
+
   return (
     <div className="App">
-      <UsersForm userSelect={userSelect} update={update} addUser={addUser}/>
-      <UsersList dataUsers={dataUsers} selectUser={selectUser} deleteUser={deleteUser} />
+      <nav className='Navbar'>
+        <h1>Users</h1>
+        <button onClick={() => modalOpen()}>+ Create new user</button>
+      </nav>
+      <UsersForm userSelect={userSelect} update={update} addUser={addUser} modal={modal} modalClose={modalClose}/>
+      <UsersList dataUsers={dataUsers} selectUser={selectUser} deleteUser={deleteUser}  />
     </div>
   )
 }
