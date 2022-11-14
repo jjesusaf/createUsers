@@ -1,0 +1,72 @@
+body{
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.App{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.userList>ul>li{
+    list-style: none;
+}
+
+.userForm{
+    background: #FFFFFF;
+    width: 419px;
+    height: 731px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+.input-container>label, input{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.input-container>label{
+    text-align: left;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}
+
+.input-container>input{
+    border: 1px solid #C3C1C1;
+    border-radius: 6px;
+    width: 355px;
+    height: 48px;
+    background: #F9FAFC;
+}
+
+.userForm>button{
+    background: #555A88;
+    width: 355px;
+    height: 45px;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
