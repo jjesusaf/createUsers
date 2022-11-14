@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const UsersForm = ({ userSelect, update, addUser, modal, modalClose}) => {
+const UsersForm = ({ userSelect, update, addUser, modal, modalClose }) => {
 
     //Form Variables
 
@@ -17,6 +17,8 @@ const UsersForm = ({ userSelect, update, addUser, modal, modalClose}) => {
             setEmail(userSelect.email)
             setPassword(userSelect.password)
             setBirthay(userSelect.birthday)
+        }else{
+            reset()
         }
     }, [userSelect])
 
@@ -33,11 +35,20 @@ const UsersForm = ({ userSelect, update, addUser, modal, modalClose}) => {
             birthday
         }
 
-        if (userSelect !== null) {
+        if (userSelect) {
             update(newUser)
         } else {
             addUser(newUser)
         }
+        reset()
+    }
+
+    const reset = () => {
+        setFirst_name("")
+        setLast_name("")
+        setEmail("")
+        setPassword("")
+        setBirthay("")
     }
 
 
@@ -49,7 +60,7 @@ const UsersForm = ({ userSelect, update, addUser, modal, modalClose}) => {
                     </svg>
                 </div>
                 <h1>
-                    New User
+                    {userSelect ? "Edit User": "New User"}
                 </h1>
                 <div className="input-container">
                     <label htmlFor="first_name">

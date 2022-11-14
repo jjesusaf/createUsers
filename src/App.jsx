@@ -43,14 +43,12 @@ function App() {
     axios.post('https://users-crud1.herokuapp.com/users/', newUser)
       .then(() => getUsers()) 
       .catch(error=>alert(error.response?.data?.email[0]))
-      setUserSelect(null)
       modalClose()
   }
 
   const update = (editUser) => {
     axios.put(`https://users-crud1.herokuapp.com/users/${userSelect.id}/`, editUser)
       .then(() => getUsers())
-      setUserSelect(null)
       modalClose()
   }
 
